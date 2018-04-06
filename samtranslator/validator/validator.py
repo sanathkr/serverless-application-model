@@ -1,7 +1,8 @@
 import json
 import jsonschema
 from jsonschema.exceptions import ValidationError
-import sam_schema
+import samtranslator.validator.sam_schema as sam_schema
+
 
 class SamTemplateValidator(object):
 

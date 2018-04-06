@@ -1,6 +1,7 @@
 from samtranslator.public.sdk.resource import SamResourceType
 from samtranslator.public.intrinsics import is_intrinsics
 
+
 class Globals(object):
     """
     Class to parse and process Globals section in SAM template. If a property is specified at Global section for
@@ -47,14 +48,16 @@ class Globals(object):
         ]
     }
 
-    supported_resource_section_names = [x.replace(_RESOURCE_PREFIX, "") for x in supported_properties.keys()]
-
     def __init__(self, template):
         """
         Constructs an instance of this object
 
         :param dict template: SAM template to be parsed
         """
+
+        self.supported_resource_section_names = [
+            x.replace(self._RESOURCE_PREFIX, "") for x in self.supported_properties.keys()]
+
         self.template_globals = {}
 
         if self._KEYWORD in template:

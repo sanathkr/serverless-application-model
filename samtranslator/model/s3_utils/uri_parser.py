@@ -1,4 +1,8 @@
-from urlparse import urlparse, parse_qs
+try:
+    from urlparse import urlparse, parse_qs
+except ImportError:
+    # Python3
+    from urllib.parse import urlparse, parse_qs
 
 
 def parse_s3_uri(uri):
